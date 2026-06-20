@@ -39,7 +39,6 @@ body {
   background-image: url(../assets/images/bg-main-mobile.png);
   background-repeat: no-repeat;
   background-size: 100% 24rem;
-  background-color: black;
 }
 
 @media (min-width: 768px) {
