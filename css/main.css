@@ -1,0 +1,416 @@
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-font: "Space Grotesk", sans-serif;
+  --gray-950: rgb(47, 47, 47);
+  --gray-400: rgb(173, 181, 190);
+  --gray-200: rgb(223, 222, 224);
+  --purple-950: rgb(33, 9, 47);
+  --purple-500: rgb(213, 58, 255);
+  --red-400: rgb(255, 80, 80);
+  --gradient: rgb(99, 72, 254), rgb(97, 5, 149);
+}
+
+:where(input, button) {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--main-font);
+  font-size: 1.6rem;
+  min-height: 100vh;
+  line-height: 1.5;
+  background-image: url(../assets/images/bg-main-mobile.png);
+  background-repeat: no-repeat;
+  background-size: 100% 24rem;
+  background-color: black;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-size: 100% 34rem;
+  }
+}
+
+@media (min-width: 1070px) {
+  body {
+    background-image: url(../assets/images/bg-main-desktop.png);
+    background-size: 48.3rem 100%;
+  }
+}
+
+@media (max-width: 1069px) {
+  main {
+    flex-direction: column;
+    gap: 7rem;
+  }
+}
+
+@media (min-width: 1070px) {
+  main {
+    gap: 17rem;
+    margin-inline: 2rem;
+  }
+}
+
+.card-container {
+  position: relative;
+  max-width: 33.5rem;
+  height: 24.5rem;
+}
+
+@media (min-width: 500px) {
+  .card-container {
+    max-width: 43rem;
+    height: 29rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    max-width: 54.2rem;
+    height: 38.5rem;
+  }
+}
+
+@media (min-width: 1070px) {
+  .card-container {
+    height: 52.2rem;
+  }
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  max-width: 28.5rem;
+}
+
+@media (min-width: 500px) {
+  .card-front,
+  .card-back {
+    max-width: 34rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-front,
+  .card-back {
+    max-width: 44.7rem;
+  }
+}
+
+@media (max-width: 1069px) {
+  .card-front {
+    bottom: 0;
+    z-index: 100;
+  }
+}
+
+.card-front .content {
+  top: 0;
+  padding: 1.6rem;
+  color: white;
+  align-items: flex-start;
+}
+
+@media (min-width: 500px) {
+  .card-front .content {
+    padding: 1.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-front .content {
+    padding: 2.4rem 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-front .logo {
+    width: 5.2rem;
+  }
+}
+
+.card-front .number {
+  margin-bottom: 1.6rem;
+}
+
+@media (min-width: 500px) {
+  .card-front .number {
+    font-size: 2.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-front .number {
+    font-size: 2.8rem;
+    letter-spacing: 3.5px;
+    margin-bottom: 2.4rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .card-front .footer {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-front .footer {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+}
+
+.card-back {
+  right: 0;
+}
+
+@media (min-width: 1070px) {
+  .card-back {
+    bottom: 0;
+  }
+}
+
+.card-back .cvc {
+  color: white;
+  top: 50%;
+  right: 12%;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 500px) {
+  .card-back .cvc {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-back .cvc {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+}
+
+form {
+  max-width: 38.3rem;
+  gap: 2.4rem;
+  transition:
+    0.8s opacity,
+    0.8s transform;
+}
+
+@media (max-width: 500px) {
+  form {
+    margin-inline: 2.4rem;
+  }
+}
+
+form :where(label, legend) {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: var(--purple-950);
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+form input[data-card] {
+  height: 4.5rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  outline: none;
+}
+
+form input[data-card]:focus {
+  border-color: transparent;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(to bottom, rgb(99, 72, 254), rgb(97, 5, 149)) border-box;
+}
+
+form input::placeholder {
+  color: var(--purple-950);
+  opacity: 0.25;
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+form input[data-card] {
+  width: 100%;
+}
+
+form .expdate-cvc {
+  gap: 2.4rem;
+}
+
+form fieldset {
+  border: none;
+  gap: 1rem;
+}
+
+form fieldset .exp-date {
+  width: 8rem;
+}
+
+.exp-date .error-msg {
+  font-size: 1rem;
+}
+
+.success-msg {
+  width: 90%;
+  max-width: 32.7rem;
+  transition:
+    0.8s opacity,
+    0.8s transform;
+}
+
+@media (min-width: 500px) {
+  .success-msg {
+    max-width: 38.1rem;
+  }
+}
+
+.success-msg .thanks-msg {
+  font-weight: 600;
+  color: var(--purple-950);
+  margin-top: 3.2rem;
+}
+
+.success-msg p:last-of-type {
+  font-size: 1.8rem;
+  margin: 1.6rem 0 4.8rem;
+  color: var(--gray-400);
+}
+
+/* Utilities */
+.text-preset-28 {
+  font-size: 2.8rem;
+  line-height: 1.3;
+  letter-spacing: 3.5px;
+}
+
+.text-preset-18 {
+  font-size: 1.8rem;
+  line-height: 1.3;
+  letter-spacing: 2.5px;
+}
+
+.text-preset-9 {
+  font-size: 0.9rem;
+  line-height: 1.25;
+  letter-spacing: 1.25px;
+}
+
+.text-preset-10 {
+  font-size: 1rem;
+  line-height: 1.25;
+  letter-spacing: 1.25px;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.trans-y-15 {
+  transform: translateY(15px);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.jc-s-between {
+  justify-content: space-between;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.main-button {
+  width: 100%;
+  height: 5.3rem;
+  padding: 1.5rem;
+  background-color: var(--purple-950);
+  color: white;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.error-msg {
+  color: var(--red-400);
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+form input[aria-invalid="true"] {
+  border-color: var(--red-400);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hidden {
+  display: none;
+}

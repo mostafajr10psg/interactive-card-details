@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="flex">
+    <main class="flex-1 flex jc-center ai-center">
+      <h1 class="sr-only">Interactive Card</h1>
+      <section class="card-container w-full">
+        <h2 class="sr-only">Card container</h2>
+        <section class="card-front">
+          <h2 class="sr-only">Card front</h2>
+          <img src="assets/images/bg-card-front.png" alt="" class="card-image" />
+          <div class="content w-full h-full p-absolute flex flex-col jc-s-between">
+            <img class="logo" src="assets/images/card-logo.svg" alt="" />
+            <div class="data w-full">
+              <p class="number text-preset-18" data-card="number">0000 0000 0000 0000</p>
+              <div class="footer text-preset-10 flex jc-s-between ai-center">
+                <p class="name text-uppercase" data-card="name">Jane Appleseed</p>
+                <div class="exp-date flex">
+                  <span class="month" data-card="exp-month">00</span>
+                  /
+                  <span class="year" data-card="exp-year">00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card-back">
+          <h2 class="sr-only">Card back</h2>
+          <img src="assets/images/bg-card-back.png" alt="" class="card-image" />
+          <p class="cvc text-preset-9 p-absolute" data-card="cvc">000</p>
+        </section>
+      </section>
+
+      <form class="flex flex-col" novalidate>
+        <div class="card-name">
+          <label for="card-name">cardholder name</label>
+          <input
+            id="card-name"
+            name="card-name"
+            type="text"
+            data-card="name"
+            required
+            minlength="2"
+            maxlength="30"
+            aria-describedby="card-name-error"
+            placeholder="e.g. Jane Applessed"
+          />
+          <p class="error-msg hidden" id="card-name-error" role="alert"></p>
+        </div>
+        <div class="card-number">
+          <label for="card-number">card number</label>
+          <input
+            id="card-number"
+            name="card-number"
+            type="text"
+            data-card="number"
+            required
+            minlength="16"
+            maxlength="16"
+            inputmode="numeric"
+            aria-describedby="card-number-error"
+            placeholder="e.g. 1234 5678 9123 0000"
+          />
+          <p class="error-msg hidden" id="card-number-error" role="alert"></p>
+        </div>
+        <div class="expdate-cvc flex">
+          <fieldset class="flex">
+            <legend>exp. date (mm/yy)</legend>
+            <div class="exp-date month">
+              <input
+                id="exp-month"
+                name="exp-month"
+                type="text"
+                data-card="exp-month"
+                required
+                maxlength="2"
+                inputmode="numeric"
+                aria-describedby="exp-month-error"
+                placeholder="MM"
+              />
+              <p class="error-msg hidden" id="exp-month-error" role="alert"></p>
+            </div>
+            <div class="exp-date year">
+              <input
+                id="exp-year"
+                name="exp-year"
+                type="text"
+                data-card="exp-year"
+                required
+                minlength="2"
+                maxlength="2"
+                inputmode="numeric"
+                aria-describedby="exp-year-error"
+                placeholder="YY"
+              />
+              <p class="error-msg hidden" id="exp-year-error" role="alert"></p>
+            </div>
+          </fieldset>
+
+          <div class="cvc flex-1">
+            <label for="cvc">cvc</label>
+            <input
+              id="cvc"
+              name="cvc"
+              type="text"
+              data-card="cvc"
+              required
+              minlength="3"
+              maxlength="3"
+              inputmode="numeric"
+              aria-describedby="cvc-error"
+              placeholder="e.g. 123"
+            />
+            <p class="error-msg hidden" id="cvc-error" role="alert"></p>
+          </div>
+        </div>
+        <input type="submit" value="Confirm" class="main-button" />
+      </form>
+
+      <section class="success-msg flex flex-col ai-center opacity-0 trans-y-15 hidden">
+        <h2 class="sr-only">Card has been added</h2>
+        <img src="assets/images/icon-complete.svg" alt="" />
+        <p class="thanks-msg text-preset-28 text-uppercase">thank you!</p>
+        <p>We've added your card details</p>
+        <button type="button" class="main-button">Continue</button>
+      </section>
+    </main>
+    <script src="src/app.js"></script>
+  </body>
+</html>
